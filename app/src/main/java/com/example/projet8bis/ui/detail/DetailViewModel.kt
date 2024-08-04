@@ -47,7 +47,17 @@ class DetailViewModel @Inject constructor(
 
 
 
-
+    fun translateDate(to: Double) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val result = dataRepository.fetchTranslate(to)
+                _translate.value = SimpleResponse.success(result)
+            } catch (e: Exception) {
+                _translate.value = SimpleResponse.failure(e)
+                _detailError.value = "Translation error: ${e.message}"
+            }
+        }
+    }
 
 
 

@@ -1,6 +1,7 @@
 package com.example.projet8bis.data
 
 import com.example.projet8bis.model.Content
+import com.example.techradar.retrofit.CallApi
 import com.example.techradar.room.dao.ListDao
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
@@ -106,7 +107,9 @@ class DataRepository(
         return result
     }
 
-
+    suspend fun fetchTranslate(to:Double?): Double {
+        return CallApi.fetchTranslateData(to)
+    }
 
 
 

@@ -152,7 +152,50 @@ class Detail : Fragment(R.layout.fragment_detail) {
         wageText.text = getString(R.string.wage_text, formattedWage, getString(R.string.euro))
 
 
+        viewModel.translateDate(wage)
 
+
+
+        lifecycleScope.launch {
+            viewModel.translate.collect {
+
+                    result ->
+                when (result.status) {
+
+                    is SimpleResponse.Status.Success -> {
+
+                        val translate = result.data
+
+                        val format = if (translate != null && translate % 1 == 0.0) {
+                            String.format("%.0f", translate)
+                        } else {
+                            String.format("%.2f", translate)
+                        }
+
+
+
+                        currency.text =
+                            "${getString(R.string.soit)} $format ${getString(R.string.pound)}"
+
+                    }
+
+                    SimpleResponse.Status.Failure -> {
+
+                        return@collect
+                    }
+
+                    else -> {
+
+                        return@collect
+
+                    }
+                }
+
+
+            }
+
+
+        }
 
 
         if (birthday.isNotEmpty()) {
