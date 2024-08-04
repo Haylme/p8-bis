@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "projet 8 bis"
+rootProject.name = "tech radar"
 include(":app")
  
