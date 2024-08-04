@@ -1,4 +1,4 @@
-package com.example.projet8bis.modelimport
+package com.example.projet8bis.model
 
 import kotlinx.serialization.SerialName
 
