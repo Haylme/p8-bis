@@ -1,5 +1,8 @@
 package com.example.projet8bis.ui.edit
 
+import android.content.ContentResolver
+import android.content.Context
+import android.net.Uri
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +11,16 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.techradar.R
 import dagger.hilt.android.AndroidEntryPoint
+
+
+
+fun getDrawableUri(context: Context, drawableId: Int): Uri {
+    return Uri.Builder().scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
+        .authority(context.resources.getResourcePackageName(drawableId))
+        .appendPath(context.resources.getResourceTypeName(drawableId))
+        .appendPath(context.resources.getResourceEntryName(drawableId)).build()
+}
+
 
 @AndroidEntryPoint
 class Edit : Fragment() {
