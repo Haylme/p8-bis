@@ -1,8 +1,9 @@
 package com.example.projet8bis
 
 import com.example.projet8bis.data.DataRepository
+import com.example.projet8bis.model.Content
 import com.example.projet8bis.model.SimpleResponse
-import com.example.projet8bis.ui.detail.DetailViewModel
+import com.example.projet8bis.ui.edit.EditViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -24,11 +25,11 @@ import org.mockito.MockitoAnnotations
 
 @ExperimentalCoroutinesApi
 @RunWith(JUnit4::class)
-class DetailViewModelTest {
+class EditViewModelTest {
 
     @Mock
     private lateinit var dataRepository: DataRepository
-    private lateinit var detailViewModel: DetailViewModel
+    private lateinit var editViewModel: EditViewModel
     private val testDispatcher = StandardTestDispatcher()
     private val testScope = TestCoroutineScope(testDispatcher)
 
@@ -36,7 +37,7 @@ class DetailViewModelTest {
     fun setup() {
         MockitoAnnotations.openMocks(this)
         Dispatchers.setMain(testDispatcher)
-        detailViewModel = DetailViewModel(dataRepository)
+        editViewModel = EditViewModel(dataRepository)
     }
 
     @After
@@ -46,17 +47,28 @@ class DetailViewModelTest {
     }
 
     @Test
-    fun `translateDate should update translate on success`() = runBlocking {
-        val input = 123.45
-        val expectedResult = 678.90
+    fun `editAccount should update editAdd on success`() = runBlocking {
+        val content = Content(
+            id = 1,
+            name = "John",
+            firstname = "Doe",
+            phone = "1234567890",
+            email = "john.doe@example.com",
+            birthday = "01/01/2000",
+            wage = 100.0,
+            note = "Test note",
+            favorite = false,
+            picture = null
+        )
+        val userId = 1L
 
-        `when`(dataRepository.fetchTranslate(input)).thenReturn(expectedResult)
+        `when`(dataRepository.editUser(content, userId)).thenReturn(true)
 
-        detailViewModel.translateDate(input)
+        editViewModel.editAccount(content, userId)
         testScope.advanceUntilIdle()
 
-        val translateState = detailViewModel.translate.first()
-        assertEquals(SimpleResponse.success(expectedResult), translateState)
+        val editAddState = editViewModel.editAdd.first()
+        assertEquals(SimpleResponse.success(content), editAddState)
     }
 
 
