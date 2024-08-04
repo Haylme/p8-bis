@@ -1,10 +1,8 @@
 package com.example.projet8bis
 
-
 import com.example.projet8bis.data.DataRepository
-import com.example.projet8bis.model.Content
 import com.example.projet8bis.model.SimpleResponse
-import com.example.projet8bis.ui.home.HomeViewModel
+import com.example.projet8bis.ui.detail.DetailViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -12,8 +10,10 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestCoroutineScope
 import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
-import org.junit.Assert.assertTrue
+import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -24,13 +24,11 @@ import org.mockito.MockitoAnnotations
 
 @ExperimentalCoroutinesApi
 @RunWith(JUnit4::class)
-class TestHomeViewmodel {
-
-
+class DetailViewModelTest {
 
     @Mock
     private lateinit var dataRepository: DataRepository
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var detailViewModel: DetailViewModel
     private val testDispatcher = StandardTestDispatcher()
     private val testScope = TestCoroutineScope(testDispatcher)
 
@@ -38,42 +36,28 @@ class TestHomeViewmodel {
     fun setup() {
         MockitoAnnotations.openMocks(this)
         Dispatchers.setMain(testDispatcher)
-        homeViewModel = HomeViewModel(dataRepository)
+        detailViewModel = DetailViewModel(dataRepository)
+    }
+
+    @After
+    fun tearDown() {
+        Dispatchers.resetMain()
+        testScope.cleanupTestCoroutines()
     }
 
     @Test
-    fun `allFavorites should update homeAdd on success`() = runBlocking {
-        val favorites = listOf(
-            Content(
-                id = 1,
-                name = "John",
-                firstname = "Doe",
-                phone = "1234567890",
-                email = "john.doe@example.com",
-                birthday = "01/01/2000",
-                wage = 100.0,
-                note = "Test note",
-                favorite = true,
-                picture = null
-            )
-        )
+    fun `translateDate should update translate on success`() = runBlocking {
+        val input = 123.45
+        val expectedResult = 678.90
 
-        `when`(dataRepository.fetchAllFavorites()).thenReturn(favorites)
+        `when`(dataRepository.fetchTranslate(input)).thenReturn(expectedResult)
 
-        homeViewModel.allFavorites()
+        detailViewModel.translateDate(input)
         testScope.advanceUntilIdle()
 
-
-
-       assertTrue(homeViewModel.homeAdd.first() == SimpleResponse.success(favorites))
-
-
+        val translateState = detailViewModel.translate.first()
+        assertEquals(SimpleResponse.success(expectedResult), translateState)
     }
-
-
-
-
-
 
 
 }

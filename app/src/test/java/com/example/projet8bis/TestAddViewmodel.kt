@@ -12,7 +12,9 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestCoroutineScope
 import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
+import org.junit.After
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
@@ -38,6 +40,12 @@ class AddViewModelTest {
         Dispatchers.setMain(testDispatcher)
         addViewModel = AddViewModel(dataRepository)
     }
+    @After
+    fun tearDown() {
+        Dispatchers.resetMain()
+        testScope.cleanupTestCoroutines()
+    }
+
 
     @Test
     fun `addNewUser should update userAdd on success`() = runBlocking {
