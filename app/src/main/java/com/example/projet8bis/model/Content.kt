@@ -1,7 +1,8 @@
 package com.example.projet8bis.model
 
 import android.net.Uri
-import com.example.techradar.room.dto.ListDto
+import com.example.projet8bis.room.dto.ListDto
+
 
 data class Content(
     val id: Long = 0,

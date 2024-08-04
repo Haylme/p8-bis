@@ -1,20 +1,17 @@
-package com.example.techradar.database
+package com.example.projet8bis.database
 
 import android.content.Context
 import android.net.Uri
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverter
-import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.techradar.room.dao.ListDao
-import com.example.techradar.room.dto.ListDto
+import com.example.projet8bis.room.dao.ListDao
+import com.example.projet8bis.room.dto.ListDto
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import kotlinx.serialization.json.JsonNull.content
 import java.io.File
-
 
 
 @Database(entities = [ListDto::class], version = 1, exportSchema = false)

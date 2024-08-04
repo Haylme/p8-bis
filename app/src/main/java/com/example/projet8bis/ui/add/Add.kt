@@ -16,10 +16,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import com.example.projet8bis.R
+import com.example.projet8bis.databinding.FragmentAddBinding
 import com.example.projet8bis.model.Content
 import com.example.projet8bis.model.SimpleResponse
-import com.example.techradar.R
-import com.example.techradar.databinding.FragmentAddBinding
+
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar

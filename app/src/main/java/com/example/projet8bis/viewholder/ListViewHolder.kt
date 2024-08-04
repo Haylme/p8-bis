@@ -3,10 +3,12 @@ package com.example.projet8bis.viewholder
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.projet8bis.R
+import com.example.projet8bis.databinding.ItemBinding
 import com.example.projet8bis.model.Content
 import com.example.projet8bis.ui.edit.getDrawableUri
-import com.example.techradar.R
-import com.example.techradar.databinding.ItemBinding
+
+
 
 
 class ListViewHolder(

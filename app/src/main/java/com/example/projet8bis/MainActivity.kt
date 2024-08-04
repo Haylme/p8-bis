@@ -1,9 +1,10 @@
-package com.example.techradar
+package com.example.projet8bis
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.techradar.databinding.ActivityMainBinding
+import com.example.projet8bis.databinding.ActivityMainBinding
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

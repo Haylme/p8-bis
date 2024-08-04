@@ -3,10 +3,11 @@ package com.example.projet8bis.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projet8bis.databinding.ItemBinding
 import com.example.projet8bis.model.Content
 import com.example.projet8bis.model.SimpleResponse
 import com.example.projet8bis.viewholder.ListViewHolder
-import com.example.techradar.databinding.ItemBinding
+
 
 class ListAdapter(
     private var list: List<Content>,

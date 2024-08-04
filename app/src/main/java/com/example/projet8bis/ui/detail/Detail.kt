@@ -18,10 +18,11 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.projet8bis.R
+import com.example.projet8bis.databinding.FragmentDetailBinding
 import com.example.projet8bis.model.SimpleResponse
 import com.example.projet8bis.ui.edit.getDrawableUri
-import com.example.techradar.R
-import com.example.techradar.databinding.FragmentDetailBinding
+
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

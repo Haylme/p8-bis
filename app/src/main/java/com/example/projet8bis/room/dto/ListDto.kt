@@ -1,4 +1,4 @@
-package com.example.techradar.room.dto
+package com.example.projet8bis.room.dto
 
 import android.net.Uri
 import androidx.room.ColumnInfo

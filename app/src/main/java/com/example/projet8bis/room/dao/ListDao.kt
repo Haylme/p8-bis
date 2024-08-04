@@ -1,10 +1,9 @@
-package com.example.techradar.room.dao
+package com.example.projet8bis.room.dao
 
-import android.net.Uri
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.techradar.room.dto.ListDto
+import com.example.projet8bis.room.dto.ListDto
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -21,8 +20,7 @@ interface ListDao {
     fun getAllUsers(): Flow<List<ListDto>>
 
 
-    @Query("UPDATE list SET list_picture = :uri WHERE user_Id = :id")
-    suspend fun updateImageUri(id: Long, uri: Uri)
+
 
 
 

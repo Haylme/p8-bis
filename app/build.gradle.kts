@@ -10,11 +10,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.techradar"
+    namespace = "com.example.projet8bis"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.techradar"
+        applicationId = "com.example.projet8bis"
         minSdk = 30
         targetSdk = 34
         versionCode = 1

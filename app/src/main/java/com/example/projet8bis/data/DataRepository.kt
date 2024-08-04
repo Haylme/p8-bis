@@ -1,8 +1,9 @@
 package com.example.projet8bis.data
 
 import com.example.projet8bis.model.Content
-import com.example.techradar.retrofit.CallApi
-import com.example.techradar.room.dao.ListDao
+import com.example.projet8bis.retrofit.CallApi
+import com.example.projet8bis.room.dao.ListDao
+
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map

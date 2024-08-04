@@ -1,6 +1,6 @@
-package com.example.techradar.retrofit
+package com.example.projet8bis.retrofit
 
-import Curencies
+
 import com.example.projet8bis.model.Curencies
 import retrofit2.Response
 import retrofit2.Retrofit
