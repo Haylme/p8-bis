@@ -295,7 +295,7 @@ class Add : Fragment() {
                             is SimpleResponse.Status.Success -> {
                                 Snackbar.make(
                                     binding.root,
-                                    "User added successfully",
+                                    R.string.useraddsuccess,
                                     Snackbar.LENGTH_LONG
                                 ).show()
                                 viewModel.resetToast()

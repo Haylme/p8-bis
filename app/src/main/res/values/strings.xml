@@ -68,6 +68,6 @@
 
     <string name="ajouter">Ajouter un candidat</string>
     <string name="soit">Soit</string>
-
+    <string name="useraddsuccess" translatable="false"> Nouvel utilisateur ajouté</string>
 
 </resources>

@@ -47,7 +47,7 @@ class AddViewModel @Inject constructor(
         wage: Double,
         note: String
     ): Boolean {
-        // Implement your logic here
+
         return nom.isNotEmpty() && prenom.isNotEmpty() && phone.isNotEmpty() &&
                 email.isNotEmpty() && date.isNotEmpty() && wage > 0 && note.isNotEmpty()
     }

@@ -69,6 +69,6 @@
 
     <string name="ajouter">Add a candidate</string>
     <string name="soit">Or</string>
-
+    <string name="useraddsuccess" translatable="false"> User added successfully</string>
 
 </resources>
